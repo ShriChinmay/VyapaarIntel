@@ -196,7 +196,13 @@ def main():
     service = RedditIngestionService()
     output = service.process_request(input_data)
 
-    print(json.dumps(output, indent=2, ensure_ascii=False))
+    # print(json.dumps(output, indent=2, ensure_ascii=False))
+    with open("ingestion_output.json", "w", encoding="utf-8") as f:
+        json.dump(output, f, indent=2, ensure_ascii=False)
+
+    print("Saved ingestion_output.json")
+
+
 
 
 if __name__ == "__main__":
